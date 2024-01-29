@@ -1,0 +1,32 @@
+html{
+  height: 100%;
+  background-color: rgb(219, 219, 219);
+}
+
+header{
+  height: 150px;
+  width: auto;
+  position: relative;
+  margin: 5px;
+  
+
+  background-color: lightslategrey;
+
+  .header__title{
+    position: absolute;
+    left: 5%;
+    top: 20%;
+  }
+}
+
+main{
+  width: auto;
+  margin: 5px;
+
+  .nameContainer__Title{
+    display: inline;
+  }
+  .nameContainer__Name{
+    display: inline;
+  }
+}
