@@ -12,21 +12,28 @@ header{
 
   background-color: lightslategrey;
 
-  .header__title{
+
+  .header__container{
+    display: grid;
     position: absolute;
     left: 5%;
-    top: 20%;
+    top: 30%;
+    .header__title{
+      margin: 0;
+    }
+    .header__username{
+      margin: 0;
+    }
   }
+
 }
 
 main{
   width: auto;
   margin: 5px;
 
-  .nameContainer__Title{
-    display: inline;
-  }
-  .nameContainer__Name{
-    display: inline;
+  .formContainer{
+    display: grid;
+    place-content: center;
   }
 }

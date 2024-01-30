@@ -1,43 +1,80 @@
 import Header from "./Header"
-//import { useState } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { useState } from "react"
 
+export type Inputs = {
+    name: string;
+    birthday: number;
+    hobby:string;
+    detail:string;
+};
 
 const Home:React.FC = () =>{
 
-//useStateにはこれで
-//const [username,setUsername] = useState<string>("a")
+    
 
-//変数への型指定
-const name:string = "谷口 諄輔"
-const hobby:string = "ゲーム、読書"
-const birthday:{year:number,month:number,date:number} = {year:1999,month:2,date:5}
-const detail:string = "特にない"
+    const {register,handleSubmit,reset,formState:{errors}} = useForm<Inputs>({reValidateMode:"onSubmit",criteriaMode:"all"})
 
+    const [response,setResponse] =useState<Inputs>({name:"",birthday:0,hobby:"",detail:""})
+    const [boolean,setBoolean] = useState<boolean>(false)
+
+    const onSubmit:SubmitHandler<Inputs> = (data) =>{
+        setResponse(data)
+        setBoolean(true)
+    }
+
+    function formReset(){
+        reset()
+        setBoolean(false)
+        setResponse({name:"",birthday:0,hobby:"",detail:""})
+    }
 
     return(
         <>
-        <Header/>
+        <Header {...response}/>
         <main>
-            <div className="profileContainer">
-                <div className="profileContainer_Name">
-                    <h3 className="profileContainer__Title">名前:</h3>
-                    <p className="nameContainer__Name">{name}</p>
-                </div>
-                <div className="Container">
-                    <h3 className="nameContainer__Title">生年月日:</h3>
-                    <p className="nameContainer__Name">{birthday.year}年{birthday.month}月{birthday.date}日</p>
-                </div>
-                <div className="Container">
-                    <h3 className="nameContainer__Title">趣味:</h3>
-                    <p className="nameContainer__Name">{hobby}</p>
-                </div>
+            <form className="formContainer" onSubmit={handleSubmit(onSubmit)}>
+                <label>名前{errors.name && errors.name.message}
                 <br/>
-                <div className="Container">
-                    <h3 className="nameContainer__Title">ここ最近の出来事</h3>
-                    <br/>
-                    <p className="nameContainer__Name">{detail}</p>
-                </div>
-            </div>
+                    <input type="text" {...register("name",{
+                        required:{value:true,message:"必須の項目です。"}
+                    })}/>
+                </label>
+                <label>生年月日
+                <br/>
+                    <input type="text" {...register("birthday",{
+                        required:{value:true,message:"必須の項目です。"}
+                    })}/>
+                </label>
+                <label>趣味
+                <br/>
+                    <input type="text" {...register("hobby",{
+                        required:{value:true,message:"必須の項目です。"}
+                    })}/>
+                </label>
+                <label>詳細
+                <br/>
+                    <input type="text" {...register("detail",{
+                        required:{value:true,message:"必須の項目です。"}
+                    })}/>
+                </label>
+                <input type="submit" value="送信"/>
+                <input type="button" value="リセット" onClick={() => formReset()}/>
+            </form>
+            <br/>
+            {boolean ?
+            <div>
+                <h1>名前</h1>
+                <p>{response.name}</p>
+                <h1>生年月日</h1>
+                <p>{response.birthday}</p>
+                <h1>趣味</h1>
+                <p>{response.hobby}</p>
+                <h1>詳細</h1>
+                <p>{response.detail}</p>
+            </div> 
+            :
+             <></>}
             
         </main>
         </>
