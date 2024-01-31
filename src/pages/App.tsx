@@ -8,7 +8,7 @@ const App:React.FC = () => {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home/>}/>
+      <Route path="/react-kiso4/" element={<Home/>}/>
     </Routes>
     </BrowserRouter>
     </>
