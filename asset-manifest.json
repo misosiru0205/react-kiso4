@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.fdfb416d.css",
-    "main.js": "./static/js/main.ab43331b.js",
-    "static/js/787.a55484bb.chunk.js": "./static/js/787.a55484bb.chunk.js",
-    "index.html": "./index.html",
-    "main.fdfb416d.css.map": "./static/css/main.fdfb416d.css.map",
-    "main.ab43331b.js.map": "./static/js/main.ab43331b.js.map",
-    "787.a55484bb.chunk.js.map": "./static/js/787.a55484bb.chunk.js.map"
+    "main.css": "/misosiru0205/react-kiso4.git/static/css/main.fdfb416d.css",
+    "main.js": "/misosiru0205/react-kiso4.git/static/js/main.ad817430.js",
+    "static/js/787.a55484bb.chunk.js": "/misosiru0205/react-kiso4.git/static/js/787.a55484bb.chunk.js",
+    "index.html": "/misosiru0205/react-kiso4.git/index.html",
+    "main.fdfb416d.css.map": "/misosiru0205/react-kiso4.git/static/css/main.fdfb416d.css.map",
+    "main.ad817430.js.map": "/misosiru0205/react-kiso4.git/static/js/main.ad817430.js.map",
+    "787.a55484bb.chunk.js.map": "/misosiru0205/react-kiso4.git/static/js/787.a55484bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fdfb416d.css",
-    "static/js/main.ab43331b.js"
+    "static/js/main.ad817430.js"
   ]
 }
