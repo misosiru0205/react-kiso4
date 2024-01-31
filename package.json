@@ -1,5 +1,4 @@
 {
-  "homepage":"https://misosiru0205.github.io/react-kiso4",
   "name": "react-kiso4",
   "version": "0.1.0",
   "private": true,
@@ -47,6 +46,7 @@
       "last 1 safari version"
     ]
   },
+  "homepage":".",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "keywords": [],
