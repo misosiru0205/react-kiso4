@@ -40,19 +40,19 @@ const Home:React.FC = () =>{
                         required:{value:true,message:"必須の項目です。"}
                     })}/>
                 </label>
-                <label>生年月日
+                <label>生年月日{errors.birthday && errors.birthday.message}
                 <br/>
                     <input type="text" {...register("birthday",{
                         required:{value:true,message:"必須の項目です。"}
                     })}/>
                 </label>
-                <label>趣味
+                <label>趣味{errors.hobby && errors.hobby.message}
                 <br/>
                     <input type="text" {...register("hobby",{
                         required:{value:true,message:"必須の項目です。"}
                     })}/>
                 </label>
-                <label>詳細
+                <label>詳細{errors.detail && errors.detail.message}
                 <br/>
                     <input type="text" {...register("detail",{
                         required:{value:true,message:"必須の項目です。"}
