@@ -23,6 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prettier:w" : "prettier --write src/*/**.{ts,tsx}",
     "deploy": "npm run build && gh-pages -d build -m \"Updates --skip-ci\"",
     "eject": "react-scripts eject",
     "start": "react-scripts start",

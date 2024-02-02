@@ -35,5 +35,20 @@ main{
   .formContainer{
     display: grid;
     place-content: center;
+
+    input{
+      width: fit-content
+    }
+  }
+
+  .responseContainer{
+    h2{
+      display: inline;
+    }
+    p{
+      font-size: x-large;
+      display: inline;
+    }
+    
   }
 }
