@@ -2,12 +2,16 @@ import Header from "./Header";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
 
+//オブジェクトの型定義
 export type Inputs = {
   name: string|undefined;
   age: number|undefined;
 };
 
+//functionならば:React.FCは不必要
 const Home: React.FC = () => {
+
+  //useFormに定義した型をあてる
   const {
     register,
     handleSubmit,
@@ -15,18 +19,23 @@ const Home: React.FC = () => {
     formState: { errors },
   } = useForm<Inputs>({ reValidateMode: "onSubmit", criteriaMode: "all" });
 
+  //useStateも同じくあてる
   const [response, setResponse] = useState<Inputs>({
     name: undefined,
     age: undefined,
   });
+
+  //真偽値のステートを定義
   const [boolean, setBoolean] = useState<boolean>(false);
 
+  //useFormから入力を受け取る場合
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     setResponse(data);
     setBoolean(true);
   };
 
-  function formReset() {
+  //その他関数で返り値無しならvoid型 別に書かなくても問題はない
+  function formReset():void {
     reset();
     setBoolean(false);
     setResponse({ name: undefined, age: undefined});

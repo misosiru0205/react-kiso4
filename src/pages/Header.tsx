@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { Inputs } from "./Home";
+//Homeで定義した型をインポート
 
+//Hreaderに定義した型をあて、propsを受け取る
 const Header:React.FC<Inputs> = (props) =>{
 
     const [response,setResponse] = useState<Inputs>({ name: undefined, age: undefined})
-    
+  
+    //propsが変わるたびに更新
     useEffect(()=>{
         setResponse(props)
     },[props])
