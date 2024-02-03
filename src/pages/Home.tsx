@@ -3,10 +3,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
 
 export type Inputs = {
-  name: string;
-  birthday: number;
-  hobby: string;
-  detail: string;
+  name: string|undefined;
+  age: number|undefined;
 };
 
 const Home: React.FC = () => {
@@ -18,10 +16,8 @@ const Home: React.FC = () => {
   } = useForm<Inputs>({ reValidateMode: "onSubmit", criteriaMode: "all" });
 
   const [response, setResponse] = useState<Inputs>({
-    name: "",
-    birthday: 0,
-    hobby: "",
-    detail: "",
+    name: undefined,
+    age: undefined,
   });
   const [boolean, setBoolean] = useState<boolean>(false);
 
@@ -33,12 +29,12 @@ const Home: React.FC = () => {
   function formReset() {
     reset();
     setBoolean(false);
-    setResponse({ name: "", birthday: 0, hobby: "", detail: "" });
+    setResponse({ name: undefined, age: undefined});
   }
 
   return (
     <>
-      <Header {...response} />
+      <Header name={response.name} age={response.age} />
       <main>
         <form className="formContainer" onSubmit={handleSubmit(onSubmit)}>
           <label>
@@ -52,35 +48,15 @@ const Home: React.FC = () => {
             />
           </label>
           <label>
-            生年月日{errors.birthday && errors.birthday.message}
+            年齢{errors.age && errors.age.message}
             <br />
             <input
               type="text"
-              {...register("birthday", {
+              {...register("age", {
                 pattern: {
                   value: /^[A-Za-z0-9]+$/,
                   message: " : 数字のみの入力をしてください",
                 },
-                required: { value: true, message: " : 必須の項目です。" },
-              })}
-            />
-          </label>
-          <label>
-            趣味{errors.hobby && errors.hobby.message}
-            <br />
-            <input
-              type="text"
-              {...register("hobby", {
-                required: { value: true, message: " : 必須の項目です。" },
-              })}
-            />
-          </label>
-          <label>
-            詳細{errors.detail && errors.detail.message}
-            <br />
-            <input
-              type="text"
-              {...register("detail", {
                 required: { value: true, message: " : 必須の項目です。" },
               })}
             />
@@ -94,14 +70,9 @@ const Home: React.FC = () => {
             <h2 className="responseName">名前 : </h2>
             <p>{response.name}</p>
             <br />
-            <h2 className="responseBirthday">生年月日 : </h2>
-            <p>{response.birthday}</p>
+            <h2 className="responseBirthday">年齢 : </h2>
+            <p>{response.age}</p>
             <br />
-            <h2 className="responseHobby">趣味 : </h2>
-            <p>{response.hobby}</p>
-            <br />
-            <h2 className="responseDetail">詳細 : </h2>
-            <p>{response.detail}</p>
           </div>
         ) : (
           <></>
