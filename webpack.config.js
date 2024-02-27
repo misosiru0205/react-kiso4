@@ -8,7 +8,7 @@ const nodeExternals = require("webpack-node-externals")
 const client = {
     target:["web"],
     mode: "development",
-    entry: "./src/server.tsx",
+    entry: "./src/client.tsx",
     output: {
         path: path.resolve(__dirname,'dist'),
         filename: "client.js"
@@ -67,5 +67,5 @@ const server = {
      },
 };
 
-
+//webpackの設定の送信
 module.exports = [client,server]
