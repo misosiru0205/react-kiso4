@@ -16,7 +16,7 @@ app.get("/react-kiso4/",(req,res)=>{
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width">
-      <script type="module" src="../dist/client.js" async defer></script>
+      <script type="module" src="./dist/client.js" async defer></script>
       <link rel="stylesheet" type="text/css" href="../dist/client.css">
       <title>React test</title>
     </head>

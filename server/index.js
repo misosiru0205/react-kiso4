@@ -17,9 +17,10 @@ app.get("/react-kiso4/",(req,res)=>{
     //renderToString()にてHomeコンポーネントをHTMLに変換
     const htmlElement = ReactDOMServer.renderToString(React.createElement(Home))
     //fs.readFileSyncであらかじめ用意したhtmlファイルをtmpに代入
-    const tmp = fs.readFileSync("../dist/index.html","utf-8")
-    //htmlファイル内の{{content}}をHomeから変換したHTMLに変える
+    const tmp = fs.readFileSync("./dist/index.html","utf-8")
+    //htmlファイル内の{{content}}をHomeから変換したHTMLに
     const html = tmp.replace("{{content}}",htmlElement)
+    //送信
     res.status(200).send(html)
 })
 

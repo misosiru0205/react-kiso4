@@ -1,7 +1,10 @@
 const path = require("path")
+//cssだけ別ファイルで出力するプラグイン
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+//依存関係を解決するやつ
 const nodeExternals = require("webpack-node-externals")
 
+//クライアント側に渡すjsをバンドルする
 const client = {
     target:["web"],
     mode: "development",
@@ -37,10 +40,11 @@ const client = {
     ]
 };
 
+//nodeの実行ファイルをバンドルする
 const server = {
   target:["node"],
   mode: "development",
-  entry: "./server/test.tsx",
+  entry: "./server/index.js",
   output: {
       path: path.resolve(__dirname,'dist'),
       filename: "server.js"

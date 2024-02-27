@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./server/test.tsx":
+/***/ "./server/index.js":
 /*!*************************!*\
-  !*** ./server/test.tsx ***!
+  !*** ./server/index.js ***!
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _src_pages_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/pages/Home */ \"./src/pages/Home.tsx\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\nconst htmlElement = react_dom_server__WEBPACK_IMPORTED_MODULE_3___default().renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_src_pages_Home__WEBPACK_IMPORTED_MODULE_2__[\"default\"]));\nconst port = process.env.PORT || 9000;\nconst app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default()[\"static\"](\".\"));\napp.get(\"/react-kiso4/\", (req, res) => {\n  const html = \"<!DOCTYPE html>\\n  <html class=\\\"scroll-smooth\\\">\\n    <head>\\n      <meta charset=\\\"UTF-8\\\">\\n      <meta name=\\\"viewport\\\" content=\\\"width=device-width\\\">\\n      <script type=\\\"module\\\" src=\\\"../dist/client.js\\\" async defer></script>\\n      <link rel=\\\"stylesheet\\\" type=\\\"text/css\\\" href=\\\"../dist/client.css\\\">\\n      <title>React test</title>\\n    </head>\\n    <body>\\n      <div id=\\\"root\\\">\".concat(htmlElement, \"</div>\\n    </body>\\n  </html>\");\n  res.status(200).send(html);\n});\napp.listen(port, () => {\n  console.log(\"Server is listening on port \".concat(port));\n});\n\n//# sourceURL=webpack://react-kiso4/./server/test.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _src_pages_Home_tsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/pages/Home.tsx */ \"./src/pages/Home.tsx\");\n\n\n\n\n\n\n//ポートの指定　今回は9000\nconst port = process.env.PORT || 9000;\nconst app = express__WEBPACK_IMPORTED_MODULE_1___default()();\n\n//CSSやJsも読み込ませたいのでstaticを使用\napp.use(express__WEBPACK_IMPORTED_MODULE_1___default()[\"static\"](\".\"));\n\n//react-dom-routerでreact-kiso4を設定しているので\"/react-kiso4/\"に設定\napp.get(\"/react-kiso4/\", (req, res) => {\n  //renderToString()にてHomeコンポーネントをHTMLに変換\n  const htmlElement = react_dom_server__WEBPACK_IMPORTED_MODULE_0___default().renderToString( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement(_src_pages_Home_tsx__WEBPACK_IMPORTED_MODULE_4__[\"default\"]));\n  //fs.readFileSyncであらかじめ用意したhtmlファイルをtmpに代入\n  const tmp = fs__WEBPACK_IMPORTED_MODULE_3___default().readFileSync(\"./dist/index.html\", \"utf-8\");\n  //htmlファイル内の{{content}}をHomeから変換したHTMLに\n  const html = tmp.replace(\"{{content}}\", htmlElement);\n  //送信\n  res.status(200).send(html);\n});\n\n//ポート9000で開放\napp.listen(port, () => {\n  console.log(\"Server is listening on port \".concat(port));\n});\n\n//# sourceURL=webpack://react-kiso4/./server/index.js?");
 
 /***/ }),
 
@@ -77,6 +77,16 @@ module.exports = require("react-dom/server");
 /***/ ((module) => {
 
 module.exports = require("react-hook-form");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+module.exports = require("fs");
 
 /***/ })
 
@@ -152,7 +162,7 @@ module.exports = require("react-hook-form");
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./server/test.tsx");
+/******/ 	var __webpack_exports__ = __webpack_require__("./server/index.js");
 /******/ 	
 /******/ })()
 ;
