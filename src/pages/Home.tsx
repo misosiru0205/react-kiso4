@@ -1,17 +1,17 @@
 import Header from "./Header";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
+import React from "react";
 
 //オブジェクトの型定義
 export type Inputs = {
-  name: string|undefined;
-  age: number|undefined;
+  usename: string | undefined;
+  age: number | undefined;
 };
 
 //functionならば:React.FCは不必要
 const Home: React.FC = () => {
-
-  //useFormに定義した型をあてる
+  //useFormに定義した型をあてはめる
   const {
     register,
     handleSubmit,
@@ -19,9 +19,9 @@ const Home: React.FC = () => {
     formState: { errors },
   } = useForm<Inputs>({ reValidateMode: "onSubmit", criteriaMode: "all" });
 
-  //useStateも同じくあてる
+  //useStateも同じく
   const [response, setResponse] = useState<Inputs>({
-    name: undefined,
+    usename: undefined,
     age: undefined,
   });
 
@@ -35,23 +35,23 @@ const Home: React.FC = () => {
   };
 
   //その他関数で返り値無しならvoid型 別に書かなくても問題はない
-  function formReset():void {
+  function formReset(): void {
     reset();
     setBoolean(false);
-    setResponse({ name: undefined, age: undefined});
+    setResponse({ usename: undefined, age: undefined });
   }
 
   return (
     <>
-      <Header name={response.name} age={response.age} />
+      <Header usename={response.usename} age={response.age} />
       <main>
         <form className="formContainer" onSubmit={handleSubmit(onSubmit)}>
           <label>
-            名前{errors.name && errors.name.message}
+            名前{errors.usename && errors.usename.message}
             <br />
             <input
               type="text"
-              {...register("name", {
+              {...register("usename", {
                 required: { value: true, message: " : 必須の項目です。" },
               })}
             />
@@ -77,7 +77,7 @@ const Home: React.FC = () => {
         {boolean ? (
           <div className="responseContainer">
             <h2 className="responseName">名前 : </h2>
-            <p>{response.name}</p>
+            <p>{response.usename}</p>
             <br />
             <h2 className="responseBirthday">年齢 : </h2>
             <p>{response.age}</p>

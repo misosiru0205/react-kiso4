@@ -1,17 +1,29 @@
 {
-  "homepage":"https://misosiru0205.github.io/react-kiso4",
+  "homepage": "https://misosiru0205.github.io/react-kiso4",
   "name": "react-kiso4",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/express": "^4.17.21",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.76",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "babel-loader": "^9.1.3",
+    "crypto-browserify": "^3.12.0",
+    "css-loader": "^6.10.0",
+    "express": "^4.18.2",
     "gh-pages": "^6.1.1",
+    "http": "^0.0.1-security",
+    "https-browserify": "^1.0.0",
+    "mini-css-extract-plugin": "^2.8.0",
     "prettier": "^3.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -19,16 +31,26 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
+    "stream-http": "^3.2.0",
+    "style-loader": "^3.3.4",
+    "ts-node": "^10.9.2",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "url": "^0.11.3",
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
-    "prettier:w" : "prettier --write src/*/**.{ts,tsx}",
+    "prettier:w": "prettier --write src/*/**.{ts,tsx}",
     "deploy": "npm run build && gh-pages -d build -m \"Updates --skip-ci\"",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "start:ssr": "webpack && node dist/server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -49,7 +71,7 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "index.tsx",
   "keywords": [],
   "author": "",
   "license": "ISC"
