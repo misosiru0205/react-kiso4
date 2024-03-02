@@ -9,7 +9,7 @@ const app = express()
 
 app.use(express.static("."));
 
-app.get("/react-kiso4/",(req,res)=>{
+app.get("/react-kiso4",(req,res)=>{
 
     const html = `<!DOCTYPE html>
   <html class="scroll-smooth">
